@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <title>jQuery.slot Example</title>
+    <style type="text/css">
+    .slot {
+      width: 100px;
+      height: 500px;
+      float: left;
+      margin-right: 20px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #ccc;
+    }
+    .slot ul {
+      padding: 0;
+      height: 500px;
+      width: 100px;
+      display: inline;
+      overflow: hidden;
+    }
+    .slot ul li {
+      height: 100px;
+      width: 100px;
+      float: left;
+      display: inline;
+      overflow: hidden;
+    }
+    .slot ul:after {
+      visibility: hidden;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="slot">
+        <ul>
+          <li><img src="img/img001.jpg"/></li>
+          <li><img src="img/img002.jpg"/></li>
+          <li><img src="img/img003.jpg"/></li>
+          <li><img src="img/img004.jpg"/></li>
+          <li><img src="img/img005.jpg"/></li>
+        </ul>
+      </div>
+      <div class="slot">
+        <ul>
+          <li><img src="img/img002.jpg"/></li>
+          <li><img src="img/img004.jpg"/></li>
+          <li><img src="img/img006.jpg"/></li>
+          <li><img src="img/img008.jpg"/></li>
+          <li><img src="img/img010.jpg"/></li>
+        </ul>
+      </div>
+      <div class="slot">
+        <ul>
+          <li><img src="img/img001.jpg"/></li>
+          <li><img src="img/img003.jpg"/></li>
+          <li><img src="img/img005.jpg"/></li>
+          <li><img src="img/img007.jpg"/></li>
+          <li><img src="img/img009.jpg"/></li>
+        </ul>
+      </div>
+    </div>
+    <div id="buttons">
+      <input id="start" type="button" value="start" />
+      <input id="stop" type="button" value="stop" />
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../jquery.slot.min.js"></script>
+    <script type="text/javascript">
+     (function() {
+       $('.slot').slot();
+       $('#start').on('click', function() {
+         $(this).attr('disabled', 'disabled');
+         $('#stop').removeAttr('disabled');
+         $('.slot').slot('start');
+       });
+       $('#stop').on('click', function() {
+         $(this).attr('disabled', 'disabled');
+         $('#start').removeAttr('disabled');
+         $('.slot').slot('stop');
+       });
+     }());
+    </script>
+  </body>
+</html>
