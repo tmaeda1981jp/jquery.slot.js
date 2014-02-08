@@ -1,4 +1,4 @@
-# jquery.slot
+# jquery.slot.js
 
 ## Usage
 
